@@ -1,0 +1,14 @@
+<div>
+    <h1>Images</h1>
+    <div>
+    <img ng-src='{{imgModel}}'>
+    </div>
+    <div>
+
+              <div ng-repeat = "x in imgArray">
+                 <img src="{{x}}" class = "images" ng-click="changeImage($index)"  ng-model="imgModel">
+              </div>
+            
+            
+        </div>
+        </div>

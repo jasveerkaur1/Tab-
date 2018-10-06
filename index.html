@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html ng-app="myApp">
+    <head>
+    <link rel="stylesheet"  href="tabcss.css">
+    </head>
+          
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+<body>
+
+<nav>
+ <ul>
+     <li><a href="#!"Tab1>TAB1</a></li>
+     <li><a  href="#!css">CSS</a></li>
+    <li><a href="#!js">Javascript</a></li>
+     
+    </ul>
+</nav>
+
+<div ng-view></div>
+<script>
+ angular.module('myApp',["ngRoute"])
+.config(function($routeProvider){
+     $routeProvider
+     .when("/",{
+        templateUrl:"htmltemp.html",
+      controller :"maincontroller"
+    })
+    
+ .when('/css',{
+     templateUrl : "csstemp.html",
+     controller : "maincontroller",
+})
+ .when('/js',{
+     templateUrl : "js.html",
+     controller : "maincontroller",
+
+ });
+ })
+ .controller('maincontroller', function($scope) {
+    $scope.names = [
+        'photo.png',
+        'photo2.png',
+        'video1.mp3',
+        'video2.mp4',
+        'image1.jpg',
+        'image2.jpg',
+        'text1.txt',
+        'text2.txt',   
+    ];
+     $scope.imgArray = ["image1.jpg","image2.jpg","image3.jpg","image4.jpg","image5.jpg"]
+     $scope.changeImage = function($index){
+         $scope.imgModel=$scope.imgArray[$index];  
+     }
+    $scope.products = [""];
+    $scope.addItem = function () {
+        $scope.products.push($scope.addMe);
+    }    
+});
+
+</script>
+</body>
+</html> 
+$scope.deletRecord = function(id) {
+    //if (confirm('Are you sure you want to delete this?')) {
+     //$http.delete("empdata.json"+id)
+    //.then(function(response){
+     //console.log(response);
+    //}
+
